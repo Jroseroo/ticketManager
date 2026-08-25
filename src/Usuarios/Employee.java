@@ -2,23 +2,27 @@ package Usuarios;
 
 import Tickets.Ticket;
 
+import java.rmi.server.RMIServerSocketFactory;
+import java.rmi.server.RMISocketFactory;
 import java.util.ArrayList;
 
-public class Employee{
+public class Employee extends ManagerEmployee{
     //Atributos
-    public String ID; //DNI
+    public int ID; //DNI
     public String name;
     public String surnames;
     public String departamento;
 
     ArrayList<Ticket> miTickets = new ArrayList<>();
+    //static ArrayList<Employee> allEmployee = new ArrayList<>();
 
     //Constructor
-    public Employee(String ID, String name, String surnames, String departamento){
-        this.ID = ID;
+    public Employee(String name, String surnames, String departamento){
+        this.ID = IdUserActual ++;
         this.name = name;
         this.surnames = surnames;
         this.departamento = departamento;
+        allEmployee.add(this);
     }
 
     //Métodos
@@ -29,8 +33,13 @@ public class Employee{
 
     public void mostrarTicketsUser(){
         for(int i = 0; i < miTickets.size(); i++){
-            System.out.println(miTickets.get(i).getTitle());
+            miTickets.get(i).getData();
         }
     }
+
+    public void getUserData(){
+        System.out.println("ID" + this.ID + " " + this.name + " " + this.surnames);
+    }
+
 
 }
