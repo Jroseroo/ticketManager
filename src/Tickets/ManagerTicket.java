@@ -12,7 +12,12 @@ public class ManagerTicket {
     public String  titulo;
     public String descripcion;
     public Employee employee;
+    public Estado estado;
     public  Technical tecnicoResponsable;
+
+    public enum Estado{
+        Pendiente, EnCurso, Resuelto;
+    }
 
     public static ArrayList<Ticket> allTickets = new ArrayList<>();
     static int IdActual = 1;
@@ -47,34 +52,4 @@ public class ManagerTicket {
         }
 
     }
-/*
-    public interface manageTechnical{
-        default void assignTicket(int id){
-            try{
-                if (id > allTickets.size() || id == 0){
-                    throw new ArrayIndexOutOfBoundsException("No se ha encontrado el ID indicado");
-                }else {
-                    for(int i=0; i < allTickets.size(); i++){
-                        if (id == allTickets.get(i).ID){
-                            allTickets.get(i).getData();
-                            System.out.println("Si desea asignarse el ticket, pulse 1");
-                            System.out.println("Si desea buscar otro ticket, pulse 2");
-                            var respuestaScaner = new Scanner(System.in);
-                            int valorRespuesta = respuestaScaner.nextInt();
-                            if (valorRespuesta == 1){
-
-                            } else if (valorRespuesta == 2) {
-                                System.out.println("Introduzca el ID del ticket que desea buscar");
-                            }
-                        }
-
-                    }
-                }
-            }catch (ArrayIndexOutOfBoundsException e){
-                System.out.println("Error: " + e.getMessage());
-            }
-        }
-    }
- */
-
 }

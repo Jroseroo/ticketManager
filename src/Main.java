@@ -1,3 +1,4 @@
+import Tickets.ManagerTicket;
 import Tickets.Ticket;
 import Usuarios.AdminApp;
 import Usuarios.Employee;
@@ -16,18 +17,20 @@ public class Main {
 
         var empleado2 = new Employee( "Daniela", "Gómez", "Dibujo");
         empleado2.crearTicket("Prueba 3", "Tercera prueba");
-        //empleado2.mostrarTicketsUser();
-
+        empleado2.crearTicket("PruebaNX", "Comprobación");
         var empleado3 = new Employee("Isa", "Márquez", "Educación");
+        var empleado4 = new Employee("Joan", "Gómez", "Mantenimiento");
 
         var admin1 = new AdminApp("3", "Isa", "Márquez");
-        //admin1.getAllTickets();
-        //admin1.getAllEmployee();
-        //admin1.searchTicket();
-        //admin1.searchEmployee(3);
+
+
         var tecnico1 = new Technical("1", "Monito", "Kiki");
-        tecnico1.assignTicket(1);
-        tecnico1.searchTicket();
+        //empleado2.mostrarTicketsUser();
+        tecnico1.showUserTicket(1);
+
+
+
+
 
     }
 

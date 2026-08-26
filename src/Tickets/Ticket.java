@@ -10,7 +10,10 @@ public class Ticket extends ManagerTicket {
     private String  titulo;
     private String descripcion;
     private Employee employee;
+    public Estado estado;
     public  Technical tecnicoResponsable;
+
+    public ArrayList<String> comentarios = new ArrayList<>();
 
     //Constructor
     public Ticket(String titulo, String descripcion, Employee employee){
@@ -18,6 +21,7 @@ public class Ticket extends ManagerTicket {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.employee = employee;
+        this.estado = Estado.Pendiente;
 
         allTickets.add(this);
     }
@@ -29,9 +33,9 @@ public class Ticket extends ManagerTicket {
 
     public void getData(){
         if(this.tecnicoResponsable == null){
-            System.out.println("ID" + this.ID + " " + this.titulo + " " + this.employee.name + " Sin asignar");
+            System.out.println("ID" + this.ID + " " + this.titulo + " " + this.employee.name + " Estado: " +estado + " Sin asignar");
         }else {
-            System.out.println("ID" + this.ID + " " + this.titulo + " " + this.employee.name + " Responsable: " + this.tecnicoResponsable.name + " " + this.tecnicoResponsable.surnames);
+            System.out.println("ID" + this.ID + " " + this.titulo + " " + this.employee.name +   " Estado: " + estado + " Responsable: " + this.tecnicoResponsable.name + " " + this.tecnicoResponsable.surnames);
         }
 
     }
