@@ -9,13 +9,13 @@ import java.util.Scanner;
 public class ManagerTicket {
     //Atributos
     private int ID; //número aleatorio
-    public String  titulo;
+    public String titulo;
     public String descripcion;
     public Employee employee;
     public Estado estado;
-    public  Technical tecnicoResponsable;
+    public Technical tecnicoResponsable;
 
-    public enum Estado{
+    public enum Estado {
         Pendiente, EnCurso, Resuelto;
     }
 
@@ -25,13 +25,13 @@ public class ManagerTicket {
 
     //Interfaces
 
-    public interface manageTickets{
-        default void getAllTickets(){
-            for (int i = 0; i < allTickets.size(); i++){
+    public interface manageTickets {
+        default void getAllTickets() {
+            for (int i = 0; i < allTickets.size(); i++) {
                 allTickets.get(i).getData();
             }
         }
-
+/*
         default void searchTicket(){
             try {
                 System.out.println("Introduzca el ID del ticket que desea buscar");
@@ -51,5 +51,7 @@ public class ManagerTicket {
             }
         }
 
+    }
+ */
     }
 }

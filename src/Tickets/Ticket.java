@@ -1,29 +1,37 @@
 package Tickets;
+import ConexionBD.ConexionBD;
 import Usuarios.Employee;
 import Usuarios.Technical;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Ticket extends ManagerTicket {
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+
     //Atributos
     public int ID; //número aleatorio
-    private String  titulo;
-    private String descripcion;
-    private Employee employee;
+    public String  titulo;
+    public String descripcion;
+    public Employee employee;
     public Estado estado;
+    public String dateTime;
     public  Technical tecnicoResponsable;
 
-    public ArrayList<String> comentarios = new ArrayList<>();
+    public ArrayList<Comentarios> comentarios = new ArrayList<>();
+    ConexionBD conexionBD = new ConexionBD();
 
     //Constructor
-    public Ticket(String titulo, String descripcion, Employee employee){
-        this.ID = IdActual ++;
+    public Ticket(String titulo, String descripcion){
+        //this.ID = IdActual ++;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.employee = employee;
         this.estado = Estado.Pendiente;
+        this.dateTime = dtf.format(LocalDateTime.now());
 
-        allTickets.add(this);
+        //allTickets.add(this);
     }
 
     //Métodos
@@ -33,9 +41,9 @@ public class Ticket extends ManagerTicket {
 
     public void getData(){
         if(this.tecnicoResponsable == null){
-            System.out.println("ID" + this.ID + " " + this.titulo + " " + this.employee.name + " Estado: " +estado + " Sin asignar");
+            System.out.println(this.titulo + " " + this.employee.name + " Sin asignar" + " Fecha: " + dateTime +  " Estado: " +estado);
         }else {
-            System.out.println("ID" + this.ID + " " + this.titulo + " " + this.employee.name +   " Estado: " + estado + " Responsable: " + this.tecnicoResponsable.name + " " + this.tecnicoResponsable.surnames);
+            System.out.println(this.titulo + " " + this.employee.name + " Fecha: " + dateTime +  " Estado: " + estado +   " Responsable: " + this.tecnicoResponsable.name + " " + this.tecnicoResponsable.surnames);
         }
 
     }

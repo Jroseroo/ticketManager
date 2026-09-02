@@ -1,11 +1,12 @@
 package Usuarios;
 
+import ConexionBD.ConexionBD;
 import Tickets.ManagerTicket;
 import Tickets.Ticket;
 
 import java.util.ArrayList;
 
-public class AdminApp implements ManagerEmployee.showEmployee, ManagerTicket.manageTickets {
+public class AdminApp  {
     //Atributos
     public String ID; //DNI
     public String name;

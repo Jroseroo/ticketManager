@@ -1,5 +1,7 @@
 package Usuarios;
 
+import ConexionBD.ConexionBD;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,12 +14,12 @@ public abstract class ManagerEmployee {
 
     public static ArrayList<Employee> allEmployee = new ArrayList<>();
     static int IdUserActual = 1;
-
+    ConexionBD conexionBD = new ConexionBD();
     //Métodos
 
 
     //Interfaces
-
+/*
     public interface showEmployee{
         default void getAllEmployee(){
             for (int i = 0; i < allEmployee.size(); i++){
@@ -27,11 +29,12 @@ public abstract class ManagerEmployee {
 
         default void searchEmployee(int id){
             try {
+                String idValue = id.to
                 if (id > allEmployee.size() || id == 0){
                     throw new ArrayIndexOutOfBoundsException("No se ha encontrado el ID");
                 }else {
                     for (int i= 0; i < allEmployee.size(); i++){
-                        if (allEmployee.get(i).ID == id){
+                        if (allEmployee.get(i).equals(id)){
                             allEmployee.get(i).getUserData();
                         }
                     }
@@ -63,7 +66,7 @@ public abstract class ManagerEmployee {
                     throw new ArrayIndexOutOfBoundsException("No se ha podido encontrar el ID indicado");
                 }else{
                     for (int i=0; i<allEmployee.size(); i++){
-                        if (id == allEmployee.get(i).ID ){
+                        if (allEmployee.get(i).equals(id) ){
                             if (allEmployee.get(i).misTickets.isEmpty()){
                                 System.out.println("Este usuario no tiene tickets disponibles");
                             }else{
@@ -77,5 +80,8 @@ public abstract class ManagerEmployee {
                 System.out.println("Error: " + e.getMessage());
             }
         }
+
     }
+
+ */
 }
